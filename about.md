@@ -3,13 +3,9 @@ layout: page
 title: About
 permalink: /about/
 ---
+Hello, I'm Gabriel Gonzalez and I made this blog to track and demonstrate my IT progress! I currently live in Los Angeles. My other passions include anything involving dogs (in fact, my favorite breeds are Borzois, Dachshunds, and Dobermans) and fitness. 
 
-Some information about you!
-
-### More Information
-
-A place to include any other types of information that you'd like to include about yourself.
 
 ### Contact me
 
-[email@domain.com](mailto:email@domain.com)
+[gabrieljgonzalez21@gmail.com](mailto:gabrieljgonzalez21@gmail.com)
