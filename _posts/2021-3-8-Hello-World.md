@@ -16,7 +16,7 @@ There's a bit to unpack in these goals so let's see where I'm at currently in  e
 
 ## Record and track my homelab progress and updates
 
-Currently, there's not much news regarding my homelab, for I haven't quite pinpointed exactly what hardware I will be getting. I want to use my recently earned **Cisco Certified Network Associate (CCNA)** certification to good use and get some old enterprise networking equipment such as switches and routers and lab out routing protocols such as **Open shortest path first (OSPF)** as well as examining layer 2 protocols such as **spanning tree protocol (STP)**. That's the tip of the iceberg of some things I want to test on physical hardware, and hopefully when I zero in on what I want to do I can list out my intentions. 
+Currently, there's not much news regarding my homelab, for I haven't quite pinpointed exactly what hardware I will be getting. I want to put my recently earned **Cisco Certified Network Associate (CCNA)** certification to good use and get some old enterprise networking equipment such as switches and routers and lab out routing protocols such as **Open shortest path first (OSPF)** as well as examining layer 2 protocols such as **spanning tree protocol (STP)**. That's the tip of the iceberg of some things I want to test on physical hardware, and hopefully when I zero in on what I want to do I can list out my intentions. 
 
 I also want to optimize, secure, and organize my home network and maintain a self-hosted server available to my family, perhaps an image-sharing service. By the end of March I will likely have my hardware ordered and my homelab network topology constructed.  
 
