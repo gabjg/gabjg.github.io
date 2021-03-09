@@ -3,7 +3,7 @@ layout: post
 title: First blog post!
 ---
 
-My first post will just lay out some of the projects that I intend to complete by the end of March, as well as the general purpose for this blog. The goals of this blog is:
+My first post will just lay out some of the projects that I intend to complete by the end of March, as well as the general purpose for this blog. The goals of this blog are:
 
 - Record and track my homelab progress and updates
 - Serve as a demonstration of technical skills in virtual labs 
