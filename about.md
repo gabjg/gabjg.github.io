@@ -9,3 +9,6 @@ Hello, I'm Gabriel Gonzalez and I made this blog to track and demonstrate my IT 
 ### Contact me
 
 [gabrieljgonzalez21@gmail.com](mailto:gabrieljgonzalez21@gmail.com)
+
+
+![CCNA](gabjg.github.io/images/ccna_large.jpg)
