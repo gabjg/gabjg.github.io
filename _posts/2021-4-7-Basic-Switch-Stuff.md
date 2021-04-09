@@ -23,7 +23,7 @@ I've consoled into the switch and am now doing some initial configurations. I am
 
 This enters me into the enable mode, or privileged EXEC. There are multiple access levels in Cisco switches and routers: user EXEC, privileged EXEC, and global configuration. User exec is the weakest, only allowing you to ping and very limited show commands. Privileged EXEC is a bit more powerful, you are able to make some pretty substantial changes to the device such as reload it and save its running configuration. Global config allows you to make changes to the control plane of the device, like routing protocols and interfaces. There are submodes, such as interface configuration and VLAN configuration, which fall under global config as well. 
 >**configure terminal**
->
+
 This moves me to global config.
 >**hostname (Sw2)**
 
@@ -69,6 +69,9 @@ I am manually configuring the port mode. It's an access port, which transmits an
 
 We are specifying the VLAN of the port.
 
+Finally, notice that I also had shut down many ports with the interface range and shut commands. This is just good security, as you don't want open and easily accessible ports. 
+
 We have some basic configurations, now let's configure SSH.
 
 ![setting up ssh on sw 2](https://user-images.githubusercontent.com/79895144/113960600-90532e80-97d9-11eb-9eb2-749fa411e799.png)
+
