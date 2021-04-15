@@ -46,7 +46,7 @@ This is telling the switch to prompt the user with the locally configured userna
 We exit the subconfig mode. Sometimes this isn't neccessary as you can jump between different configuration modes without typing exit, but for clarity I typed it here.
 >**ip domain-name (Sw2)**
 
-Configures the DNS name. This is neccessary for Secure Shell (SSH), but since we do not have a DNS server in this homelab I am just making it the same as the hostname.
+Configures the specific domain name of the device. This is necessary for security certificate generation for SSH, HTTPS, and IPSEC. 
 >**vlan (2)**
 
 This creates our virtual LAN (VLAN). We are going to be using VLAN 2 as our management VLAN. In order for us to SSH into the other switches, we need to not only be in the same subnet, but make sure that our frames are being forwarded tagged. Meaning, the Ethernet header needs to have the VLAN ID so the switches do not drop our traffic. Hence the creation of a new VLAN: we can better regulate where the switches are sending our management frames (through trunk links) and improve our ability to troubleshoot. 
