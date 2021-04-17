@@ -71,7 +71,11 @@ We are specifying the VLAN of the port.
 
 Finally, notice that I also had shut down many ports with the interface range and shut commands. This is just good security, as you don't want open and easily accessible ports. 
 
-We have some basic configurations, now let's configure SSH.
+In all three of our switches, SW1, SW2, and SW3, I created the management VLAN, VLAN 2. I have also added an IP address in that VLAN interface for remote management. We have some basic configurations, now let's configure SSH.
 
 ![setting up ssh on sw 2](https://user-images.githubusercontent.com/79895144/113960600-90532e80-97d9-11eb-9eb2-749fa411e799.png)
+
+>**crypto key gen rsa**
+
+This will generate our SSH key. Aftwewards, we will configure an RSA key size larger than 768 bits for SSH v2 by typing `768`, the more secure and widely used version of Secure Shell. We follow up with `ip ssh v 2` to enable version 2.
 
