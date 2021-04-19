@@ -93,12 +93,12 @@ We have some basic configurations, now let's configure SSH.
 
 >**crypto key gen rsa**
 
-This will generate our SSH key. Aftwewards, we will configure an RSA key size larger than 768 bits for SSH v2 by typing `768`, the more secure and widely used version of Secure Shell. We follow up with `ip ssh v 2` to enable version 2.
+This will generate our SSH key. Afterwards, we will configure an RSA key size larger than 768 bits for SSH v2 by typing `768`, the more secure and widely used version of Secure Shell. We follow up with `ip ssh v 2` to enable version 2.
 
 ![screenshot 1](https://user-images.githubusercontent.com/79895144/115182318-a04af800-a08e-11eb-9e4c-55d14268efc8.jpg)
 
 
-So we have our SSH keys on each switch. Now we need to make a trunk port for the switches to carry our management traffic. Why? Because of VLAN tagging. Switches have two port modes- access and trunk. As we've discussed, access ports are for a single VLAN, only processing frames with the correct VLAN ID in the frame header. What if you have a switch with 10 VLAN's, with many access ports corresponding to these VLAN's? This is where trunk links come in. A trunk link is telling the switch, "process and forward any frames with this VLAN ID", and unrecognized frames will be sent to the native VLAN. For example, if you are in VLAN 10, and you send a frame intended for a buddy a few switches away, but the switches trunk ports are only configured to allow VLAN 20 and 30, your frame will be sent to the native VLAN and your buddy will never receive your traffic. 
+So we have our SSH keys on each switch. Now we need to make a trunk port for the switches to carry our management traffic. Why? Because of VLAN tagging. Switches have two port modes- access and trunk. As we've discussed, access ports are for a single VLAN, only processing frames with the correct VLAN ID in the frame header. What if you have a switch with 10 VLAN's, with many access ports corresponding to these VLAN's? This is where trunk links come in. A trunk link is telling the switch, "process and forward any frames containing any one of these VLAN ID's", and unrecognized frames will be sent to the native VLAN. For example, if you are in VLAN 10, and you send a frame intended for a buddy a few switches away, but the switches trunk ports are only configured to allow VLAN 20 and 30, your frame will be sent to the native VLAN and your buddy will never receive your traffic. 
 
 >**switchport mode trunk**
 
@@ -108,7 +108,7 @@ We're defining the port mode. Note that I went `into interface f0/1` prior to th
 
 We're defining the VLAN's allowed on the trunk link. In our case, we only have two VLAN's, our management VLAN for remote management traffic, and our native VLAN for everything else. It may seem a little unnecessary now, but it is critical to seperate your traffic for security. In the future, when I add more VLAN's, I will simply add the VLAN's to the existing trunk port. Please, for the love of God,  to ADD VLAN's to the link, use the commmand `switchport trunk allowed vlan add (VLAN ID's)`. 
 
-Also notice I applied the `copy run start` command. This is because any changes you make to the switch will apply only to the running-config of the switch, which is hosted on the RAM, which is volatile and erased upon the switch rebooting. The startup-config, hosted on the NVRAM, is not erased after reboot. So with `copy run start` we are copying our running-config to our startup-config, essentially saving our changes. Which is what I'm doing since I'm not leaving my switches plugged in doing nothing. One more thing, notice I put `do` in front of `copy run start`. This is because show commands and changes to the device functions like saving your running-config and reloading are actually USER EXEC commands, not CONF-T commands. But adding `do` to the front of show commands and the like will allow you to show tables, save the running config, etc, without jumping back and forth between CONF-T and USER EXEC. 
+Also notice I applied the `copy run start` command. This is because any changes you make to the switch will apply only to the running-config of the switch, which is hosted on the RAM, which is volatile and erased upon the switch rebooting. The startup-config, hosted on the NVRAM, is not erased after reboot. So with `copy run start` we are copying our running-config to our startup-config, essentially saving our changes. Which is what I'm doing since I'm not leaving my switches plugged in doing nothing. One more thing, notice I put `do` in front of `copy run start`. This is because show commands and changes to the device functions like saving your running-config and reloading are actually privileged EXEC commands, not CONF-T commands. But adding `do` to the front of show commands and the like will allow you to show tables, save the running config, etc, without jumping back and forth between CONF-T and privileged EXEC. 
 
 Now that we have created our trunk links on our switches, created our passwords, created our SSH keys, created our access ports, we're now ready to SSH into the switches. At this point I remove my console cable and plugged in another Cat5. 
 
@@ -116,7 +116,7 @@ Now that we have created our trunk links on our switches, created our passwords,
 
 ![logging into sw 2](https://user-images.githubusercontent.com/79895144/115183382-81e5fc00-a090-11eb-837a-a81eb0056119.png)
 
-Success! You can see at the top I was prompted to log in with a username and password. This is the `line vty 0 15` and `login local` commands at work, along with our `username (Teemo) secret (Teemo)` commands. Next, I was prompted after typing `en` to enter USER EXEC mode. Afer typing that password, I can now access the switch. Still plugged into SW2, let's see if I can access SW1 and SW3. This will test if we have configured our trunks correctly. 
+Success! You can see at the top I was prompted to log in with a username and password. This is the `line vty 0 15` and `login local` commands at work, along with our `username (Teemo) secret (Teemo)` commands. Next, I was prompted after typing `en` to enter privileged EXEC mode. Afer typing that password, I can now access the switch. From SW1, let's see if I can access SW2 and SW3. This will test if we have configured our trunks correctly. 
 
 ![screenshot 1](https://user-images.githubusercontent.com/79895144/115183718-36801d80-a091-11eb-8f8a-1d857738f2f2.jpg)
 
