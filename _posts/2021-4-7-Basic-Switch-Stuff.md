@@ -35,8 +35,7 @@ This moves me to global config.
 Creates the hostname.
 >**enable secret (Teemo)**
 
-This command is telling the switch to ask for a password from anyone who tries to access the enable mode. Cisco password methodology is a mess, there's the enable password, username password, secret, and username secret commands. Using username secret and enable secret are your best bets, since the other passwords show the password in clear text in the running configuration as well as in the command line as it is typed to access enable mode. The "secret" command not only doesn't show your password in clear text as you type it, but uses MD5 hash in the running configuration.
-In this case, our password to access the enable mode is Teemo, caps sensitive. 
+This command is telling the switch to ask for a password from anyone who tries to access the enable mode. There are up to 9 Cisco password types which all use varying hashing/encrypting algorithms. Here we are using a type 5 password which uses MD5. Our password is Teemo. Don't ask. 
 >**line vty 0 15**
 
 This is accessing our virtual teletype lines, these control our Telnet and SSH lines. Notice that this places us in the (config-line) subconfiguration mode.
